@@ -9,15 +9,15 @@ const App = () => {
   const players = [
     {
       name: "Sam",
-      lives: 28,
+      lives: initialLives,
     },
     {
       name: "Tim",
-      lives: 28,
+      lives: initialLives,
     },
     {
       name: "Fred",
-      lives: 28,
+      lives: initialLives,
     }
   ]
 
@@ -32,21 +32,23 @@ const App = () => {
   )
   
   const otherListPlayers = players.map((player, index) => 
-    <PlayerCard key={index} name={player.name} />
+    <PlayerCard key={index} id={index + 1} name={player.name} />
   )
 
   return (
     <div className="App">
       <h1>Nerf Tracker</h1>
       <h2>Deathmatch</h2>
-  <h4>How many lives? {initialLives}</h4>
-      <select onChange={(e) => setInitialLives(e.target.value)}>
-        <option value="3">3</option>
-        <option value="5">5</option>
-        <option value="7">7</option>
-        <option value="10">10</option>
-      </select>
-      <h4>How many players? {playerCount}</h4>
+      <div className="">
+        <h4>How many lives?</h4>
+        <select onChange={(e) => setInitialLives(e.target.value)}>
+          <option value="3">3</option>
+          <option value="5">5</option>
+          <option value="7">7</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <h4>How many players?</h4>
       <select onChange={(e) => setPlayerCount(e.target.value)}>
         <option value="2">2</option>
         <option value="3">3</option>
