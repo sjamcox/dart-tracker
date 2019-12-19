@@ -25,3 +25,14 @@
   display: flex;
   flex-direction: column;
 }
+
+.controlsContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.control {
+  margin: 20px;
+  padding: 20px;
+  background-color: lightblue;
+}
