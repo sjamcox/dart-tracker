@@ -13,16 +13,18 @@
   background-color: lightcoral;
 }
 
-.playerContainer {
-  padding: 20px;
-  margin: 20px;
-  background-color: lightblue;
-}
-
 .player {
   display: flex;
   flex-direction: column;
-  margin: 20px;;
+  margin: 20px;
+  padding: 20px;
+  background-color: lightblue;
+}
+
+.playerContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
 }
 
 .controlsContainer {

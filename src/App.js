@@ -29,10 +29,15 @@ const App = () => {
     setIsPreSetup(false)
     setIsSetup(true)
   }
-
+  
   function gameStart() {
     setIsSetup(false)
     setIsGameRunning(true)
+  }
+
+  function resetGame() {
+    setIsGameRunning(false)
+    initiateSetup()
   }
   
   function decrement(index) {
@@ -48,14 +53,16 @@ const App = () => {
   }
 
   const playerList = players.map((player, index) => (
-    <Player
-      key={index}
-      name={player.name}
-      lives={player.lives}
-      decrement={decrement}
-      index={index}
-      isGameRunning={isGameRunning}
-    />
+    <div className="player">
+      <Player
+          key={index}
+          name={player.name}
+          lives={player.lives}
+          decrement={decrement}
+          index={index}
+          isGameRunning={isGameRunning}
+        />  
+    </div>
   ))
 
   const playerSetup = players.map((player, index) => (
@@ -89,12 +96,14 @@ const App = () => {
       )}
       {isGameRunning && (
         <div>
-          {playerList}
+          <div className="playerContainer">
+            {playerList}
+          </div>
+          <button onClick={resetGame}>Reset Game</button>
         </div>
       )}
     </div>
   )
 }
-
 
 export default App;
