@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Header from "./components/Header"
 import Player from "./components/Player"
 import LivesSelector from "./components/LivesSelector"
 import PlayersSelector from './components/PlayersSelector';
@@ -7,6 +8,8 @@ import PlayersSelector from './components/PlayersSelector';
 
 const App = () => {
 
+  const [ isDisabled, setIsDisabled ] = useState(true)
+  
   // Game states
   const [ isPreSetup, setIsPreSetup] = useState(true)
   const [ isSetup, setIsSetup ] = useState(false)
@@ -19,7 +22,7 @@ const App = () => {
   //Player data
   const [ players, setPlayers ] = useState([])
 
-
+  //Create players object
   function initiateSetup() {
     const newPlayers = [...players]
     for (let i = 0; i < initialPlayers; i++) {
@@ -35,7 +38,7 @@ const App = () => {
     setIsGameRunning(true)
   }
 
-  function resetGame() {
+  function gameReset() {
     setIsGameRunning(false)
     initiateSetup()
   }
@@ -50,6 +53,20 @@ const App = () => {
     const newPlayers = [...players]
     newPlayers[index].name = e.target.value
     setPlayers(newPlayers)
+    validateName(players)
+  }
+
+  function validateName(arr) {
+    let count = 0
+    for (let i = 0; i < initialPlayers; i++)
+      if (arr[i].name === "") {
+      count = count + 1
+    }
+    if (count > 0) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
   }
 
   const playerList = players.map((player, index) => (
@@ -66,24 +83,25 @@ const App = () => {
   ))
 
   const playerSetup = players.map((player, index) => (
-    <div className="player">
+    <div className="player" key={index}>
       <h1>Player {index + 1}</h1>
-      <input type="text" value={player.name} onChange={(e) => handlePlayerChange(e, index)}/>
+      <input
+        type="text"
+        value={player.name}
+        onChange={(e) => handlePlayerChange(e, index)}/>
     </div>
   ))
 
-  console.log(players)
-
   return (
     <div className="App">
-      <h1>Nerf Tracker</h1>
+      <Header />
       {isPreSetup && (
         <div>
         <div className="controlsContainer">
           <PlayersSelector setInitialPlayers={setInitialPlayers}/>
           <LivesSelector setInitialLives={setInitialLives}/>
         </div>
-        <button onClick={initiateSetup}>Enter Player Setup</button>
+        <button onClick={initiateSetup}>Next >></button>
         </div>
       )}
       {isSetup && (
@@ -91,7 +109,7 @@ const App = () => {
           <div className="setupContainer">
             {playerSetup}
           </div>
-          <button onClick={gameStart}>Start Game</button>
+          <button onClick={gameStart} disabled={isDisabled}>Start Game</button>
         </div>
       )}
       {isGameRunning && (
@@ -99,7 +117,7 @@ const App = () => {
           <div className="playerContainer">
             {playerList}
           </div>
-          <button onClick={resetGame}>Reset Game</button>
+          <button onClick={(gameReset)}>Reset Game</button>
         </div>
       )}
     </div>
