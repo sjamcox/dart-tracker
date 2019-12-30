@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <div>
             <h1>Welcome to Nerf Tracker</h1>
-            <Link to="/free-for-all"><button>Get Started</button></Link>
+            <Link to="/free-for-all/pre-setup"><button>Get Started</button></Link>
         </div>
     )
 }

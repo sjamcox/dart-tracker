@@ -1,36 +1,18 @@
-import React, { useState, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import './App.css'
 import Header from "./components/Header"
 import Home from './pages/Home'
-import Player from "./components/Player"
-import LivesSelector from "./components/LivesSelector"
-import PlayersSelector from './components/PlayersSelector'
-import FreeForAll from './pages/FreeForAll'
-import { Context } from './Context'
+import FreeForAll from './modes/FreeForAll'
 
 
 const App = () => {
 
-  const {
-    players,
-    setPlayers,
-    isDisabled,
-    setIsDisabled,
-    initialPlayers,
-    setInitialPlayers,
-    initialLives,
-    setInitialLives,
-    isPreSetup,
-    setIsPreSetup,
-    isSetup,
-    setIsSetup,
-    isGameRunning,
-    setIsGameRunning,
-    initiateSetup,
-    gameStart,
-    gameReset,
-    } = useContext(Context)
+  useEffect(() => {
+    if (performance.navigation.type === 1) {
+      window.location.href = '/';
+    } 
+  }, [])
 
   return (
     <div className="App">
