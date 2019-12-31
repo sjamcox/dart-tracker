@@ -5,9 +5,9 @@ const Header = styled.header`
     flex-direction: row;
     width: 100%;
     margin: 0 0 50px 0;
-    background-color: #00008b;
+    background-color: #000000;
     h1 {
-        color: #add8e6;
+        color: red;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 2rem;
         margin: 10px;

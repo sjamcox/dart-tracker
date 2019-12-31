@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Home = () => {
     return (
         <div>
-            <h1>Welcome to Nerf Tracker</h1>
+            <h1>Welcome to Dart Tracker</h1>
             <Link to="/free-for-all/pre-setup"><button>Get Started</button></Link>
         </div>
     )

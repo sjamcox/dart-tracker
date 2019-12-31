@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { useEffect, useContext } from 'react'
+import { Switch, Route, Link } from 'react-router-dom'
 import './App.css'
+import { Context } from './Context'
 import { Header } from "./components/Header"
 import Home from './pages/Home'
 import FreeForAll from './modes/FreeForAll'
+import { ForegroundContainer } from './components/ForegroundContainer'
 
 
 const App = () => {
+
+  const {gameReset} = useContext(Context)
 
   useEffect(() => {
     if (performance.navigation.type === 1) {
@@ -17,14 +21,16 @@ const App = () => {
   return (
     <div className="App">
       <Header>
-        <h1>Dart Tracker</h1>
+        <Link to="/"><h1 onClick={gameReset}>Dart Tracker</h1></Link>
       </Header>
-      <Switch>
-        <Route exact path="/"><Home /></Route>
-      </Switch>
-      <Switch>
-        <Route path="/free-for-all"><FreeForAll /></Route>
-      </Switch>
+      <ForegroundContainer>
+        <Switch>
+          <Route exact path="/"><Home /></Route>
+        </Switch>
+        <Switch>
+          <Route path="/free-for-all"><FreeForAll /></Route>
+        </Switch>
+      </ForegroundContainer>
     </div>
   )
 }
