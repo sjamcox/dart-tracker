@@ -1,11 +1,17 @@
-import React from 'react'
+import styled from 'styled-components'
 
-const Header = () => {
-    return (
-        <header className="header">
-            <h1 className="title">Nerf Tracker</h1>
-        </header>
-    )
-}
+const Header = styled.header`
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0 0 50px 0;
+    background-color: #00008b;
+    h1 {
+        color: #add8e6;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 2rem;
+        margin: 10px;
+    }
+`
 
-export default Header
+export { Header }

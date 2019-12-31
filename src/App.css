@@ -7,15 +7,6 @@
   font-size: calc(10px + 1vmin);
 }
 
-.header {
-  width: 100%;
-  margin: 0 0 50px 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1rem;
-  color: lightsalmon;
-  background-color: darkred;
-}
-
 .playerSection {
   display: flex;
   flex-direction: row;

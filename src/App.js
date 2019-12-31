@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import './App.css'
-import Header from "./components/Header"
+import { Header } from "./components/Header"
 import Home from './pages/Home'
 import FreeForAll from './modes/FreeForAll'
 
@@ -16,7 +16,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header>
+        <h1>Dart Tracker</h1>
+      </Header>
       <Switch>
         <Route exact path="/"><Home /></Route>
       </Switch>
