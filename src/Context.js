@@ -18,7 +18,7 @@ const ContextProvider = ({ children }) => {
           newPlayers.push({name: "", lives: initialLives})
         }
         setPlayers(newPlayers)
-      }
+    }
     
     function gameReset() {
         setInitialPlayers(baseState.players)
