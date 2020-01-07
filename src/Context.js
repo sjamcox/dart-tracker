@@ -11,8 +11,7 @@ const ContextProvider = ({ children }) => {
     const [ initialLives, setInitialLives ] = useState(baseState.lives)
     const [ players, setPlayers ] = useState([])
 
-    //Create players object
-    function initiateSetup() {
+    function createPlayers() {
         const newPlayers = [...players]
         for (let i = 0; i < initialPlayers; i++) {
           newPlayers.push({name: "", lives: initialLives})
@@ -44,7 +43,7 @@ const ContextProvider = ({ children }) => {
         } else {
           setIsDisabled(false)
         }
-      }
+    }
 
     function handlePlayerChange(e, index) {
         const newPlayers = [...players]
@@ -88,7 +87,7 @@ const ContextProvider = ({ children }) => {
             setInitialPlayers,
             initialLives,
             setInitialLives,
-            initiateSetup,
+            createPlayers,
             gameReset,
             decrement,
             }}>

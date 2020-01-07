@@ -1,10 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../Context'
 
 const Game = () => {
+    
+    const { players, playerList, gameReset } = useContext(Context)
 
-    const { playerList, gameReset } = useContext(Context)
+    useEffect(() => {
+        const livingPlayers = players.filter(player => player.lives > 0)
+        if (livingPlayers.length === 1) {
+            console.log(`${livingPlayers[0].name} Wins!`)
+        }
+    }, [players])
+
     return (
         <div>
         <div className="playerContainer">
