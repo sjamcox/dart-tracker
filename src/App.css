@@ -16,14 +16,6 @@
   background-color: lightsalmon;
 }
 
-.player {
-  display: flex;
-  flex-direction: column;
-  margin: 20px;
-  padding: 20px;
-  background-color: lightsalmon;
-}
-
 .playerContainer {
   display: flex;
   flex-direction: row;

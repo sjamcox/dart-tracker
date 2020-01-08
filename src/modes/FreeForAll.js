@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Game from '../components/Game'
 import Setup from '../components/Setup'
 import PreSetup from '../components/PreSetup'
+import Winner from '../components/Winner'
 
 const FreeForAll = () => {   
 
@@ -17,6 +18,9 @@ const FreeForAll = () => {
             </Route>
             <Route path="/free-for-all/game">
               <Game />
+            </Route>
+            <Route path="/free-for-all/winner">
+              <Winner />
             </Route>
           </Switch>
         </div>

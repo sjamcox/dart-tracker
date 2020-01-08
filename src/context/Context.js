@@ -10,6 +10,7 @@ const ContextProvider = ({ children }) => {
     const [ initialPlayers, setInitialPlayers ] = useState(baseState.players)
     const [ initialLives, setInitialLives ] = useState(baseState.lives)
     const [ players, setPlayers ] = useState([])
+    const [ winner, setWinner ] = useState("")
 
     function createPlayers() {
         const newPlayers = [...players]
@@ -24,6 +25,7 @@ const ContextProvider = ({ children }) => {
         setInitialLives(baseState.lives)
         setPlayers([])
         setIsDisabled(true)
+        setWinner("")
     }
 
     function decrement(index) {
@@ -53,7 +55,6 @@ const ContextProvider = ({ children }) => {
     }
 
     const playerList = players.map((player, index) => (
-        <div className="player">
           <Player
               key={index}
               name={player.name}
@@ -61,7 +62,6 @@ const ContextProvider = ({ children }) => {
               decrement={decrement}
               index={index}
             />  
-        </div>
     ))
 
     const playerSetup = players.map((player, index) => (
@@ -77,19 +77,21 @@ const ContextProvider = ({ children }) => {
     return (
         <Context.Provider value={{
             baseState,
-            players,
-            setPlayers,
+            createPlayers,
+            decrement,
+            gameReset,
+            isDisabled,
+            initialLives,
+            initialPlayers,
             playerList,
             playerSetup,
-            isDisabled,
-            setIsDisabled,
-            initialPlayers,
-            setInitialPlayers,
-            initialLives,
+            players,
             setInitialLives,
-            createPlayers,
-            gameReset,
-            decrement,
+            setInitialPlayers,
+            setIsDisabled,
+            setPlayers,
+            setWinner,
+            winner,
             }}>
             {children}
         </Context.Provider>
