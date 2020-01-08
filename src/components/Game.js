@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { Context } from '../Context'
+import { Context } from '../context/Context'
 
 const Game = () => {
     

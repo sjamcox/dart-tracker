@@ -4,7 +4,7 @@ import {BrowserRouter as Router} from "react-router-dom"
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { ContextProvider } from './Context'
+import { ContextProvider } from './context/Context'
 
 ReactDOM.render(
     <ContextProvider>

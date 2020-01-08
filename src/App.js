@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import './App.css'
-import { Context } from './Context'
+import { Context } from './context/Context'
 import { Header } from "./components/Header"
 import Home from './pages/Home'
 import FreeForAll from './modes/FreeForAll'
