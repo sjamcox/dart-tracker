@@ -1,24 +1,23 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../context/Context'
 
 const Game = () => {
     
+    const [ winner, setWinner ] = useState("")
     const { players, playerList, gameReset } = useContext(Context)
 
     useEffect(() => {
         const livingPlayers = players.filter(player => player.lives > 0)
         if (livingPlayers.length === 1) {
-            console.log(`${livingPlayers[0].name} Wins!`)
+            setWinner(livingPlayers[0].name)
         }
     }, [players])
 
     return (
         <div>
-        <div className="playerContainer">
-            {playerList}
-        </div>
-        <Link to="/"><button onClick={(gameReset)}>Reset Game</button></Link>
+            {!winner ? <div className="playerContainer">{playerList}</div> : <h1>{winner} Wins!</h1>}
+            <Link to="/"><button onClick={(gameReset)}>Reset Game</button></Link>
         </div>
     )
 }
