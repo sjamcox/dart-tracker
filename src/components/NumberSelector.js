@@ -7,13 +7,15 @@ const ControlWrapper = styled.div`
     flex-direction: row;
 `
 
-const NumberSelector = ({ onChange, title }) => {
+
+const NumberSelector = ({ onChange, title, value }) => {
+
     return (
         <ControlWrapper>
             <h2>{title}</h2>
-            <button onClick={decrement}>-</button>
-            <Input type="text" onChange={onChange} />
-            <button onClick={increment}>+</button>
+            <button>-</button>
+            <Input type="text" onChange={onChange} value={value} />
+            <button>+</button>
         </ControlWrapper>
     )
 }

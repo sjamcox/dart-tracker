@@ -9,18 +9,20 @@ const ControlsWrapper = styled.div`
     flex-direction: column;
 `
 
-const PreSetup = () => {
+const Setup = () => {
 
-    const {setInitialLives, setInitialPlayers, createPlayers, playerSetup, isDisabled} = useContext(Context)
+    const {initialLives, setInitialLives, initialPlayers, setInitialPlayers, createPlayers, playerSetup, isDisabled} = useContext(Context)
     return (
         <div>
             <ControlsWrapper>
                 <NumberSelector
                     title="How Many Players?"
+                    value={initialPlayers}
                     onChange={(e) => setInitialPlayers(e.target.value)}
                 />
                 <NumberSelector
                     title="How Many Lives?"
+                    value={initialLives}
                     onChange={(e) => setInitialLives(e.target.value)}
                 />
             </ControlsWrapper>
@@ -33,5 +35,5 @@ const PreSetup = () => {
     )
 }
 
-export default PreSetup
+export default Setup
 
