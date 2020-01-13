@@ -5,17 +5,27 @@ import { Input } from "./Input"
 const ControlWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    button {
+        background-color: grey;
+        border-radius: 5%
+    }
+    input {
+        width: 40px;
+    }
 `
 
-
-const NumberSelector = ({ onChange, title, value }) => {
+const NumberSelector = ({ onChange, increment, decrement, title, value }) => {
 
     return (
         <ControlWrapper>
-            <h2>{title}</h2>
-            <button>-</button>
-            <Input type="text" onChange={onChange} value={value} />
-            <button>+</button>
+            <h3>{title}</h3>
+            <div>
+                <button onClick={decrement}>-</button>
+                <Input type="text" onChange={onChange} value={value} />
+                <button onClick={increment}>+</button>
+            </div>
         </ControlWrapper>
     )
 }

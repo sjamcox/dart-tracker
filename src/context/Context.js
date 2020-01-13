@@ -64,6 +64,8 @@ const ContextProvider = ({ children }) => {
             />  
     ))
 
+    console.log(players)
+
     const playerSetup = players.map((player, index) => (
         <div className="player" key={index}>
           <h1>Player {index + 1}</h1>

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import { Switch, Route, Link } from 'react-router-dom'
 import './App.css'
 import { Context } from './context/Context'
@@ -12,11 +12,12 @@ const App = () => {
 
   const {gameReset} = useContext(Context)
 
-  useEffect(() => {
+  //Force back to home on refresh
+/*  useEffect(() => {
     if (performance.navigation.type === 1) {
       window.location.href = '/';
     } 
-  }, [])
+  }, []) */
 
   return (
     <div className="App">
