@@ -11,18 +11,24 @@ const ControlsWrapper = styled.div`
 
 const Setup = () => {
 
-    const {createPlayers, initialLives, setInitialLives, initialPlayers, setInitialPlayers, setPlayers, playerSetup, isDisabled} = useContext(Context)
+    const {createPlayers, initialLives, setInitialLives, initialPlayers, setInitialPlayers, players, setPlayers, playerSetup, isDisabled} = useContext(Context)
     
     function incrementPlayers() {
-        if (initialPlayers < 6)
-        setInitialPlayers(prevState => prevState + 1)
-        setPlayers(prevState => prevState.push({name: "", lives: initialLives}))
+        const newPlayers = [...players]
+        if (initialPlayers < 6) {
+            setInitialPlayers(prevState => prevState + 1)
+            newPlayers.push({name: "", lives: initialLives})
+            setPlayers(newPlayers)
+        }
     }
 
     function decrementPlayers() {
-        if (initialPlayers > 2)
-        setInitialPlayers(prevState => prevState - 1)
-        setPlayers(prevState => prevState.pop())
+        const newPlayers = [...players]
+        if (initialPlayers > 2) {
+            setInitialPlayers(prevState => prevState - 1)
+            newPlayers.pop()
+            setPlayers(newPlayers)
+        }
     }
     
     function incrementLives() {
