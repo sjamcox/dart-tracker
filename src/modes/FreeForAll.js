@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Game from '../components/Game'
-import Setup from '../components/Setup'
+import { Setup } from '../components/Setup'
 import PreSetup from '../components/PreSetup'
 import Winner from '../components/Winner'
 

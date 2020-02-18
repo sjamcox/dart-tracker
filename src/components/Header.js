@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-const Header = styled.header`
+export const Header = styled.header`
     display: flex;
     flex-direction: row;
     width: 100%;
     margin: 0 0 50px 0;
-    background-color: #000000;
+    background-color: darkred;
     h1 {
         color: red;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -16,5 +16,3 @@ const Header = styled.header`
         text-decoration: none;
     }
 `
-
-export { Header }

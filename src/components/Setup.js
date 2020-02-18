@@ -1,8 +1,9 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Context } from '../context/Context'
+import { Button } from '../components/Button'
 
-const Setup = () => {
+export const Setup = () => {
 
     const {playerSetup, isDisabled} = useContext(Context)
     return (
@@ -10,9 +11,7 @@ const Setup = () => {
             <div className="setupContainer">
                 {playerSetup}
             </div>
-            <Link to="/free-for-all/game"><button disabled={isDisabled}>Start Game</button></Link>
+            <Link to="/free-for-all/game"><Button disabled={isDisabled}>Start Game</Button></Link>
         </div>
     )
 }
-
-export default Setup

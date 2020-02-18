@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   font-size: calc(10px + 1vmin);
-  background-color: darkred;
+  background-color: #570000;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -48,8 +48,4 @@ button {
 
 button:disabled {
   background-color: grey;
-}
-
-button:hover:enabled {
-  background-color: salmon;
 }
